@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ramani Arts | Bouquet Shop</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#4b1d2b;
+}
+
+button{
+    cursor:pointer;
+}
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+    height:34px;
+    background:#fde5ed;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    font-size:12px;
+    color:#5b3944;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    background:white;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.menu{
+    font-size:27px;
+    cursor:pointer;
+}
+
+.logo{
+    text-align:center;
+}
+
+.logo h1{
+    font-family:Georgia,serif;
+    font-size:27px;
+    letter-spacing:2px;
+    color:#682538;
+}
+
+.logo p{
+    font-size:7px;
+    letter-spacing:3px;
+    color:#a67a87;
+}
+
+.nav{
+    display:flex;
+    gap:25px;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#542532;
+    font-size:13px;
+}
+
+.nav a:hover{
+    color:#e73872;
+}
+
+.header-right{
+    display:flex;
+    gap:20px;
+    font-size:22px;
+}
+
+.header-right span{
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width:92%;
+    max-width:1250px;
+    height:400px;
+    margin:20px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    opacity:0;
+    transform:translateX(100%);
+    transition:.7s;
+}
+
+.slide.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.hero-text{
+    width:48%;
+    padding:70px 55px;
+    background:#ffe8ef;
+}
+
+.script{
+    font-family:cursive;
+    font-size:25px;
+    color:#df4d7b;
+}
+
+.hero-text h2{
+    font-family:Georgia,serif;
+    font-size:44px;
+    line-height:1.1;
+    margin:12px 0 20px;
+}
+
+.hero-text p{
+    color:#66545a;
+    line-height:1.5;
+}
+
+.shop-btn{
+    margin-top:25px;
+    padding:14px 27px;
+    border:0;
+    border-radius:25px;
+    background:#e83d75;
+    color:white;
+    font-weight:bold;
+}
+
+.hero-image{
+    width:52%;
+    height:100%;
+    object-fit:cover;
+}
+
+.dots{
+    position:absolute;
+    bottom:14px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5;
+}
+
+.dot{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background:#ddd;
+    border-radius:50%;
+    margin:4px;
+}
+
+.dot.active{
+    background:#e83d75;
+}
+
+/* ================= COMMON ================= */
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:35px auto;
+}
+
+.title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.title-row h2{
+    font-family:Georgia,serif;
+    font-size:25px;
+}
+
+.view{
+    color:#e23b72;
+    font-weight:bold;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    border:1px solid #eee;
+    border-radius:15px;
+    padding:10px;
+    text-align:center;
+    box-shadow:0 4px 14px rgba(100,30,50,.08);
+    background:white;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-image{
+    position:relative;
+}
+
+.card-image img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.heart{
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#e83d75;
+    font-size:20px;
+}
+
+.card h3{
+    font-size:14px;
+    margin:10px 0 7px;
+}
+
+.price{
+    color:#e63370;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.add-btn{
+    width:90%;
+    margin:10px auto 3px;
+    padding:9px;
+    border:1px solid #efa9bd;
+    background:white;
+    color:#df3c72;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#e83d75;
+    color:white;
+}
+
+/* ================= COMBO ================= */
+
+.combo .card-image img{
+    height:170px;
+}
+
+.combo-text{
+    font-size:12px;
+    color:#666;
+    line-height:1.4;
+}
+
+/* ================= WHY ================= */
+
+.why{
+    background:#ffe9f0;
+    border-radius:20px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.why-left{
+    flex:1;
+}
+
+.why-left h2{
+    font-family:Georgia,serif;
+    margin-bottom:20px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.feature{
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.feature h4{
+    font-size:11px;
+}
+
+.feature p{
+    color:#777;
+    font-size:10px;
+    margin-top:5px;
+}
+
+.why-image{
+    width:38%;
+    height:170px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.about-image{
+    width:40%;
+    height:230px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.about-content{
+    flex:1;
+}
+
+.about-content small{
+    color:#df3c72;
+    font-weight:bold;
+}
+
+.about-content h2{
+    font-family:Georgia,serif;
+    font-size:28px;
+    margin:7px 0 12px;
+}
+
+.about-content p{
+    color:#666;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.about-points{
+    display:flex;
+    gap:35px;
+    margin-top:20px;
+}
+
+.about-points div{
+    text-align:center;
+    font-size:11px;
+}
+
+/* ================= OFFER ================= */
+
+.offer{
+    background:#ffe4ed;
+    border-radius:20px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.offer h2{
+    color:#e73470;
+    font-family:Georgia,serif;
+    font-size:28px;
+}
+
+.offer p{
+    margin-top:7px;
+    color:#555;
+}
+
+.offer button{
+    border:0;
+    background:#e83d75;
+    color:white;
+    padding:13px 25px;
+    border-radius:22px;
+    font-weight:bold;
+}
+
+/* ================= REVIEWS ================= */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.review{
+    background:#fff6f8;
+    border-radius:15px;
+    padding:20px;
+    border:1px solid #f6dce4;
+}
+
+.person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.person-img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.review p{
+    color:#666;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.stars{
+    color:#f49b20;
+    margin-top:10px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+}
+
+.gallery img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    background:#fff0f4;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.contact h2{
+    font-family:Georgia,serif;
+    margin-bottom:10px;
+}
+
+.contact p{
+    color:#666;
+    margin:6px;
+}
+
+.contact-btn{
+    margin-top:15px;
+    padding:12px 25px;
+    border:0;
+    border-radius:22px;
+    background:#e83d75;
+    color:white;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#fde8ef;
+    margin-top:45px;
+    padding:40px 6% 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.5fr 1.5fr;
+    gap:30px;
+}
+
+.footer-logo{
+    font-family:Georgia,serif;
+    font-size:24px;
+    font-weight:bold;
+}
+
+footer h3{
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+footer p,
+footer li{
+    color:#666;
+    font-size:12px;
+    line-height:1.8;
+}
+
+footer ul{
+    list-style:none;
+}
+
+.newsletter input{
+    width:100%;
+    padding:11px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    margin:10px 0;
+}
+
+.subscribe{
+    width:100%;
+    padding:10px;
+    border:0;
+    border-radius:20px;
+    background:#e83d75;
+    color:white;
+}
+
+.copyright{
+    border-top:1px solid #e9cbd4;
+    text-align:center;
+    padding-top:15px;
+    margin-top:30px;
+    font-size:11px;
+    color:#777;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .topbar{
+        font-size:8px;
+    }
+
+    header{
+        height:65px;
+        padding:0 15px;
+    }
+
+    .logo h1{
+        font-size:20px;
+    }
+
+    .logo p{
+        font-size:5px;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .hero{
+        height:280px;
+    }
+
+    .hero-text{
+        width:58%;
+        padding:35px 20px;
+    }
+
+    .hero-text h2{
+        font-size:24px;
+    }
+
+    .script{
+        font-size:16px;
+    }
+
+    .hero-text p{
+        font-size:10px;
+    }
+
+    .shop-btn{
+        padding:9px 15px;
+        font-size:10px;
+    }
+
+    .hero-image{
+        width:42%;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .card-image img{
+        height:135px;
+    }
+
+    .combo .card-image img{
+        height:120px;
+    }
+
+    .card h3{
+        font-size:11px;
+    }
+
+    .price{
+        font-size:14px;
+    }
+
+    .add-btn{
+        font-size:9px;
+    }
+
+    .why{
+        display:block;
+        padding:18px;
+    }
+
+    .features{
+        grid-template-columns:repeat(5,1fr);
+    }
+
+    .why-image{
+        width:100%;
+        height:160px;
+        margin-top:20px;
+    }
+
+    .about{
+        display:block;
+    }
+
+    .about-image{
+        width:100%;
+        height:190px;
+    }
+
+    .about-content{
+        margin-top:20px;
+    }
+
+    .about-content h2{
+        font-size:22px;
+    }
+
+    .about-points{
+        gap:10px;
+        justify-content:space-between;
+    }
+
+    .offer{
+        padding:20px;
+        display:block;
+        text-align:center;
+    }
+
+    .offer h2{
+        font-size:22px;
+    }
+
+    .offer button{
+        margin-top:15px;
+    }
+
+    .reviews{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .gallery img{
+        height:80px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-about{
+        grid-column:1/-1;
+    }
+
+    .newsletter{
+        grid-column:1/-1;
+    }
+}
+/* ================= BLINKING IMAGES ================= */
+
+.card-image img,
+.why-image,
+.about-image,
+.gallery img,
+.person-img{
+    animation: flowerBlink 2.5s ease-in-out infinite;
+}
+
+/* Different timing makes the images blink naturally */
+.card:nth-child(2) img{
+    animation-delay:0.3s;
+}
+
+.card:nth-child(3) img{
+    animation-delay:0.6s;
+}
+
+.card:nth-child(4) img{
+    animation-delay:0.9s;
+}
+
+.gallery img:nth-child(2){
+    animation-delay:0.2s;
+}
+
+.gallery img:nth-child(3){
+    animation-delay:0.4s;
+}
+
+.gallery img:nth-child(4){
+    animation-delay:0.6s;
+}
+
+.gallery img:nth-child(5){
+    animation-delay:0.8s;
+}
+
+.gallery img:nth-child(6){
+    animation-delay:1s;
+}
+
+.gallery img:nth-child(7){
+    animation-delay:1.2s;
+}
+
+@keyframes flowerBlink{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:0.55;
+        transform:scale(1.03);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="menu">☰</div>
+
+    <div class="logo">
+        <h1>RAMANI FLOWERS</h1>
+        <p> THAT SPEAK FROM THE HEART</p>
+    </div>
+
+    <nav class="nav"> 
+        <a href="#">Home🏠</a>
+        <a href="#bouquets">Bouquets💐</a>
+        <a href="#combos">Offers 🏷️</a>
+        <a href="#about">About Us📋</a>
+        <a href="#contact">Contact📞</a>
+    </nav>
+
+    <div class="header-right">
+        <span>⌕</span>
+        <span>♡</span>
+        <span>🛒</span>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="slide active">
+
+        <div class="hero-text">
+
+            <div class="script">
+                Beautiful ♡
+            </div>
+
+            <h2>
+                Bouquets,<br>
+                Made With Love
+            </h2>
+
+            <p>
+                Fresh & beautiful bouquets
+                for every special moment.
+            </p>
+
+            <button class="shop-btn">
+                SHOP NOW →
+            </button>
+
+        </div>
+
+        <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1000&q=85"
+        alt="Beautiful Flower Bouquet">
+
+    </div>
+
+
+    <div class="slide">
+
+        <div class="hero-text">
+
+            <div class="script">
+                Fresh Flowers ♡
+            </div>
+
+            <h2>
+                Fresh Flowers<br>
+                For Every Occasion
+            </h2>
+
+            <p>
+                Beautiful flowers crafted
+                with love and care.
+            </p>
+
+            <button class="shop-btn">
+                SHOP NOW →
+            </button>
+
+        </div>
+
+        <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1000&q=85"
+        alt="Fresh Flowers">
+
+    </div>
+
+
+    <div class="slide">
+
+        <div class="hero-text">
+
+            <div class="script">
+                Special Gifts ♡
+            </div>
+
+            <h2>
+                Send Love<br>
+                With Flowers
+            </h2>
+
+            <p>
+                Make every celebration
+                extra special.
+            </p>
+
+            <button class="shop-btn">
+                ORDER NOW →
+            </button>
+
+        </div>
+
+        <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=85"
+        alt="Flower Gift">
+
+    </div>
+
+
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURED BOUQUETS ================= -->
+
+<section class="container" id="bouquets">
+
+    <div class="title-row">
+        <h2>Featured Bouquets</h2>
+        <span class="view">View All →</span>
+    </div>
+
+    <div class="products">
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=85"
+                alt="Rose Bouquet">
+
+                <div class="heart">♡</div>
+
+            </div>
+
+            <h3>Rose Bouquet</h3>
+
+            <div class="price">
+                ₹499
+            </div>
+
+            <button
+            class="add-btn"
+            onclick="addCart('Rose Bouquet')">
+                🛒 ADD TO CART
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=85"
+                alt="Birthday Bouquet">
+
+                <div class="heart">♡</div>
+
+            </div>
+
+            <h3>Birthday Bouquet</h3>
+
+            <div class="price">
+                ₹699
+            </div>
+
+            <button
+            class="add-btn"
+            onclick="addCart('Birthday Bouquet')">
+                🛒 ADD TO CART
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=85"
+                alt="Premium Bouquet">
+
+                <div class="heart">♡</div>
+
+            </div>
+
+            <h3>Premium Bouquet</h3>
+
+            <div class="price">
+                ₹999
+            </div>
+
+            <button
+            class="add-btn"
+            onclick="addCart('Premium Bouquet')">
+                🛒 ADD TO CART
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=600&q=85"
+                alt="Love Bouquet">
+
+                <div class="heart">♡</div>
+
+            </div>
+
+            <h3>Love Bouquet</h3>
+
+            <div class="price">
+                ₹799
+            </div>
+
+            <button
+            class="add-btn"
+            onclick="addCart('Love Bouquet')">
+                🛒 ADD TO CART
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SPECIAL COMBOS ================= -->
+
+<section class="container" id="combos">
+
+    <div class="title-row">
+
+        <h2>
+            Special Bouquet Combos
+        </h2>
+
+        <span class="view">
+            View All →
+        </span>
+
+    </div>
+
+
+    <div class="products combo">
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=85"
+                alt="Birthday Combo">
+
+            </div>
+
+            <h3>
+                Birthday Combo
+            </h3>
+
+            <p class="combo-text">
+                Bouquet + Chocolate<br>
+                + Greeting Card
+            </p>
+
+            <div class="price">
+                ₹999
+            </div>
+
+            <button class="add-btn">
+                ORDER NOW
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=600&q=85"
+                alt="Love Combo">
+
+            </div>
+
+            <h3>
+                Love Combo
+            </h3>
+
+            <p class="combo-text">
+                Roses + Teddy<br>
+                + Greeting Card
+            </p>
+
+            <div class="price">
+                ₹1,199
+            </div>
+
+            <button class="add-btn">
+                ORDER NOW
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=85"
+                alt="Anniversary Combo">
+
+            </div>
+
+            <h3>
+                Anniversary Combo
+            </h3>
+
+            <p class="combo-text">
+                Premium Bouquet<br>
+                + Cake
+            </p>
+
+            <div class="price">
+                ₹1,499
+            </div>
+
+            <button class="add-btn">
+                ORDER NOW
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=85"
+                alt="Gift Combo">
+
+            </div>
+
+            <h3>
+                Gift Combo
+            </h3>
+
+            <p class="combo-text">
+                Flowers + Chocolate<br>
+                + Gift Box
+            </p>
+
+            <div class="price">
+                ₹1,099
+            </div>
+
+            <button class="add-btn">
+                ORDER NOW
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE ================= -->
+
+<section class="container">
+
+    <div class="why">
+
+        <div class="why-left">
+
+            <h2>
+                Why Choose Ramani Flower?
+            </h2>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">🌸</div>
+                    <h4>Fresh Flowers</h4>
+                    <p>Handpicked daily</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">💐</div>
+                    <h4>Unique Designs</h4>
+                    <p>Crafted creatively</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h4>On-time Delivery</h4>
+                    <p>Same / Next day</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h4>Secure Payment</h4>
+                    <p>100% safe</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎧</div>
+                    <h4>24×7 Support</h4>
+                    <p>Always here</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <img
+        class="why-image"
+        src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=85"
+        alt="Florist">
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="container" id="about">
+
+    <div class="about">
+
+        <img
+        class="about-image"
+        src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85"
+        alt="Ramani  Flower Shop">
+
+
+        <div class="about-content">
+
+            <small>
+                ABOUT RAMANI FLOWERS
+            </small>
+
+            <h2>
+                More Than Flowers.<br>
+                It's About Feelings.
+            </h2>
+
+            <p>
+                At Ramani flowers, every bouquet is crafted
+                with fresh flowers, creative designs and
+                lots of love. We make your special moments
+                more beautiful with our unique floral
+                creations.
+            </p>
+
+
+            <div class="about-points">
+
+                <div>
+                    🌸<br>
+                    Premium Quality
+                </div>
+
+                <div>
+                    💐<br>
+                    Expert Florists
+                </div>
+
+                <div>
+                    🚚<br>
+                    Custom Bouquets
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OFFER ================= -->
+
+<section class="container">
+
+    <div class="offer">
+
+        <div>
+            <h2>
+                10% OFF
+            </h2>
+
+            <p>
+                On Custom Bouquet Orders
+            </p>
+        </div>
+
+        <button onclick="customOrder()">
+            ORDER NOW →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="container">
+
+    <div class="title-row">
+
+        <h2>
+            What Our Customers Say
+        </h2>
+
+        <span class="view">
+            View All →
+        </span>
+
+    </div>
+
+
+    <div class="reviews">
+
+        <div class="review">
+
+            <div class="person">
+
+                <img
+                class="person-img"
+                src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                <strong>
+                    Priya S.
+                </strong>
+
+            </div>
+
+            <p>
+                The bouquet was absolutely beautiful
+                and fresh. Delivery was on time and
+                service was excellent!
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="person">
+
+                <img
+                class="person-img"
+                src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                <strong>
+                    Karthik M.
+                </strong>
+
+            </div>
+
+            <p>
+                Ramani flowers never disappoints!
+                Their flowers make every occasion
+                more special.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="person">
+
+                <img
+                class="person-img"
+                src="https://randomuser.me/api/portraits/women/65.jpg">
+
+                <strong>
+                    Anitha R.
+                </strong>
+
+            </div>
+
+            <p>
+                Loved the custom bouquet!
+                It was even more beautiful
+                than I expected.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="container">
+
+    <div class="title-row">
+
+        <h2>
+            Our Flower Gallery
+        </h2>
+
+        <span class="view">
+            Instagram ↗
+        </span>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=500&q=80">
+
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=500&q=80">
+
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=500&q=80">
+
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=500&q=80">
+
+        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=500&q=80">
+
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80">
+
+        <img src="https://images.unsplash.com/photo-1495231916356-a86217efff12?auto=format&fit=crop&w=500&q=80">
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="container" id="contact">
+
+    <div class="contact">
+
+        <h2>
+            Make Someone's Day Special 🌸
+        </h2>
+
+        <p>
+            Order a beautiful bouquet from Ramani flowers.
+        </p>
+
+        <p>
+            📞 96552 73829
+        </p>
+
+        <p>
+            📧 ramaniflower22@gmail.com
+        </p>
+
+        <p>
+            📍 Chennai, Tamil Nadu
+        </p>
+
+        <button
+        class="contact-btn"
+        onclick="contactUs()">
+            CONTACT US
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+                RAMANI FLOWERS
+            </div>
+
+            <p>
+                Flowers that speak from the heart.
+                Beautiful bouquets made with love.
+            </p>
+
+            <p>
+                Instagram &nbsp;
+                Facebook &nbsp;
+                WhatsApp
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                QUICK LINKS
+            </h3>
+
+            <ul>
+
+                <li>Home</li>
+                <li>Bouquets</li>
+                <li>Offers</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+                <li>Track Order</li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                CATEGORIES
+            </h3>
+
+            <ul>
+
+                <li>Roses</li>
+                <li>Birthday</li>
+                <li>Anniversary</li>
+                <li>Wedding</li>
+                <li>Custom Bouquet</li>
+                <li>Flowers & Gifts</li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                CONTACT US
+            </h3>
+
+            <p>
+                📞 96552 73829
+            </p>
+
+            <p>
+                📧 ramaniflower22@gmail.com
+            </p>
+
+            <p>
+                📍 Chennai, Tamil Nadu
+            </p>
+
+        </div>
+
+
+        <div class="newsletter">
+
+            <h3>
+                NEWSLETTER
+            </h3>
+
+            <p>
+                Subscribe to get special
+                offers and updates.
+            </p>
+
+            <input
+            type="email"
+            placeholder="Your email">
+
+            <button class="subscribe">
+                SUBSCRIBE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Ramani flower.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let current = 0;
+
+const slides =
+document.querySelectorAll(".slide");
+
+const dots =
+document.querySelectorAll(".dot");
+
+
+function showSlide(index){
+
+    slides.forEach(slide=>{
+        slide.classList.remove("active");
+    });
+
+    dots.forEach(dot=>{
+        dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    current=index;
+}
+
+
+setInterval(()=>{
+
+    current++;
+
+    if(current >= slides.length){
+        current=0;
+    }
+
+    showSlide(current);
+
+},3000);
+
+
+function addCart(name){
+
+    alert(
+        "🌸 " +
+        name +
+        " added to your cart!"
+    );
+
+}
+
+
+function customOrder(){
+
+    alert(
+        "🌸 Custom Bouquet Order\n\n" +
+        "Please contact Ramani flower:\n" +
+        "96553 13829"
+    );
+
+}
+
+
+function contactUs(){
+
+    window.location.href=
+    "tel:9655273829";
+
+}
+
+</script>
+
+</body>
+</html>
